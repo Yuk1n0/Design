@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccpv.dao.ArticleDao">
+
+    <insert id="publishArticle" parameterType="com.ccpv.bean.Article">
+        insert into tb_article(AName, UAccount, AContent, ATag, AGlanceNum, ATime, APass, AReviewer) values (#{AName}, #{UAccount}, #{AContent}, #{ATag}, #{AGlanceNum}, #{ATime}, #{APass}, #{AReviewer})
+    </insert>
+
+    <update id="updateArticleInfo" parameterType="com.ccpv.bean.Article">
+        update tb_article set AName = #{AName}, AAddress = #{AAddress} where AId = #{AId}
+    </update>
+
+    <update id="updateAGlanceNum" parameterType="int">
+        update tb_article set AGlanceNum = AGlanceNum + 1 where AId = #{AId}
+    </update>
+
+    <delete id="deleteArticle" parameterType="int">
+        delete from tb_article where AId = #{AId}
+    </delete>
+
+    <select id="maxAId" resultType="Integer">
+        select max(AId) from tb_article
+    </select>
+
+    <select id="getArticle" resultType="com.ccpv.bean.Article" parameterType="int">
+        select * from tb_article where AId = #{AId}
+    </select>
+
+    <select id="getMyArticle" resultType="com.ccpv.bean.Article" parameterType="String">
+        select * from tb_article where UAccount = #{UAccount}
+    </select>
+
+    <select id="getArticleByTag" resultType="com.ccpv.bean.Article" parameterType="String">
+        select * from tb_article where ATag = #{ATag}
+    </select>
+
+    <update id="passArticle" parameterType="int">
+        update tb_article set APass = 1 where AId = #{AId}
+    </update>
+
+    <select id="getAllUnpass" resultType="com.ccpv.bean.Article">
+        select * from tb_article where APass = 0
+    </select>
+
+    <select id="getUnpass" resultType="com.ccpv.bean.Article">
+        select * from tb_article where AReviewer = #{AReviewer} and APass = 0
+    </select>
+
+    <select id="findAllArticle" resultType="com.ccpv.bean.Article">
+        select * from tb_article
+    </select>
+
+    <update id="updateArticleExpert">
+        update tb_article set AReviewer = #{1} where AId = #{0}
+    </update>
+
+    <update id="updateAContent">
+        update tb_article set AContent = #{1} where AId = #{0}
+    </update>
+
+</mapper>

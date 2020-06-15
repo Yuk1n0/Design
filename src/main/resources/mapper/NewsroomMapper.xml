@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccpv.dao.NewsroomDao">
+
+    <select id="getNewsroomByNId" resultType="com.ccpv.bean.Newsroom" parameterType="int">
+        select * from tb_newsroom where NId = #{NId}
+    </select>
+
+    <update id="updateNotice">
+        update tb_newsroom set NNotice = #{0} where NId = #{1}
+    </update>
+
+    <select id="findAllNewsroom" resultType="com.ccpv.bean.Newsroom">
+        select * from tb_newsroom
+    </select>
+
+</mapper>

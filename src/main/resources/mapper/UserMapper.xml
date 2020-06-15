@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccpv.dao.UserDao">
+
+    <select id="doLogin" parameterType="com.ccpv.bean.User" resultType="com.ccpv.bean.User">
+        select * from tb_user where UAccount = #{UAccount} and UPassword = #{UPassword}
+    </select>
+
+    <insert id="doRegister" parameterType="com.ccpv.bean.User">
+        insert into tb_user(UAccount, UPassword, UName, UIntroduction, UPower, NId) values (#{UAccount}, #{UPassword}, #{UName}, #{UIntroduction}, #{UPower}, #{NId})
+    </insert>
+
+    <select id="isExist" parameterType="com.ccpv.bean.User" resultType="com.ccpv.bean.User">
+        select * from tb_user where UAccount = #{UAccount}
+    </select>
+
+    <update id="updateUserInfo" parameterType="com.ccpv.bean.User">
+        update tb_user set UPassword = #{UPassword}, UName = #{UName}, UIntroduction = #{UIntroduction} where UAccount = #{UAccount}
+    </update>
+
+    <select id="getUserInfo" parameterType="com.ccpv.bean.User" resultType="com.ccpv.bean.User">
+        select * from tb_user where UAccount = #{UAccount}
+    </select>
+
+    <select id="findAllNewsroom" parameterType="com.ccpv.bean.User" resultType="com.ccpv.bean.User">
+        select * from tb_user where NId = #{NId}
+    </select>
+
+    <select id="findAllNewsroomUsers" parameterType="com.ccpv.bean.User" resultType="com.ccpv.bean.User">
+        select * from tb_user
+    </select>
+
+    <update id="updateUserNewsroom">
+        update tb_user set NId = #{1} where UId = #{0}
+    </update>
+
+    <update id="updateUserNewsroomTest">
+        update tb_user set NId = #{NId} where UId = #{UId}
+    </update>
+
+    <select id="findExpert" parameterType="com.ccpv.bean.User" resultType="com.ccpv.bean.User">
+        select * from tb_user where UPower = 3
+    </select>
+
+</mapper>

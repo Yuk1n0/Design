@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccpv.dao.ChatDao">
+
+    <select id="findAllChat" resultType="com.ccpv.bean.Chat">
+        select * from tb_talk order by TId desc
+    </select>
+
+    <insert id="addChat" parameterType="com.ccpv.bean.Chat">
+        insert into tb_talk(UAccount, TTime, TContent) values (#{UAccount}, #{TTime}, #{TContent} )
+    </insert>
+
+</mapper>
