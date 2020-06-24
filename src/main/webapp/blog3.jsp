@@ -5,6 +5,7 @@
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -125,7 +126,6 @@
     <!-----------------头部位置的右边菜单栏----------------------->
     <jsp:include page="right_sidebar.jsp"></jsp:include>
 </div>
-
 
 <!-- Mainly scripts -->
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>

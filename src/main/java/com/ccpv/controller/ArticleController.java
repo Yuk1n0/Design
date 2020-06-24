@@ -31,7 +31,7 @@ public class ArticleController {
         return mv;
     }
 
-    @RequestMapping("/addArticle")
+    @RequestMapping("addArticle")
     @ResponseBody
     public String addArticle(@RequestParam String ATitle, @RequestParam String UAccount, @RequestParam String[] array, @RequestParam String ATag) {
         Article article = new Article();
@@ -53,7 +53,7 @@ public class ArticleController {
             return "Failure！";
     }
 
-    @RequestMapping("/deleteArticle")
+    @RequestMapping("deleteArticle")
     public ModelAndView deleteArticle(int AId) {
         articleService.deleteArticle(AId);
         commentService.deleteCommentByAId(AId);
@@ -108,7 +108,6 @@ public class ArticleController {
         return modelAndView;
     }
 
-    //点击我的稿件
     @RequestMapping("getMyArticle")
     public ModelAndView getMyArticles(String UAccount, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "9") int size) {
         List<Article> articleList = articleService.getMyArticle(UAccount, page, size);
@@ -119,7 +118,6 @@ public class ArticleController {
         return mv;
     }
 
-    //点击稿件中心标签
     @RequestMapping("getArticleByTag")
     public ModelAndView getArticleByTag(String ATag, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "9") int size) {
         try {

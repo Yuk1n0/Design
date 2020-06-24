@@ -171,7 +171,6 @@
     </div>
 </div>
 
-
 <!-- Mainly scripts -->
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>

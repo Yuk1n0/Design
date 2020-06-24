@@ -30,7 +30,7 @@
             <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
         </p>
         <p>请注意，如果您没有在本网站注册将无法正常使用</p>
-        <form class="m-t" role="form" action="${pageContext.request.contextPath}/user/login.do" method="post">
+        <form class="m-t" role="form" action="${pageContext.request.contextPath}/user/login" method="post">
             <div class="form-group">
                 <input type="email" class="form-control" placeholder="邮箱" required="" name="UAccount"
                        value="${user.UAccount}">

@@ -5,6 +5,7 @@
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -117,7 +118,6 @@
                            aria-label="Next">尾页</a></li>
                 </ul>
             </div>
-
 
         </div>
         <!--底部导航栏-->

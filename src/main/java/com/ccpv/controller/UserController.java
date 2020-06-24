@@ -17,7 +17,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("login.do")
+    @RequestMapping("login")
     public ModelAndView doLogin(User user, HttpServletResponse response, HttpSession httpSession) throws Exception{
         User loginUser = userService.doLogin(user);
         ModelAndView modelAndView = new ModelAndView();
@@ -36,7 +36,7 @@ public class UserController {
         return "redirect:/register.jsp";
     }
 
-    @RequestMapping("register.do")
+    @RequestMapping("register")
     public String doRegister(User user, String codeTemp) {
         String page = null;
         /*if (userService.doRegister(user, codeTemp)) */
@@ -82,19 +82,19 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping("/totoastr_notifications")
+    @RequestMapping("totoastr_notifications")
     public String totoastr_notifications() {
         return "toastr_notifications";
     }
 
-    @RequestMapping("/update")
+    @RequestMapping("update")
     public String update(User user, HttpSession httpSession) {
         userService.updateUserInfo(user);
         httpSession.setAttribute("User", user);
         return "main";
     }
 
-    @RequestMapping("/send")
+    @RequestMapping("send")
     public String send(String UAccount) {
         if (userService.sendMail(UAccount)) {
             return "Success";

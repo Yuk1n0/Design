@@ -46,7 +46,7 @@
         <h3>创建一个账户，立即发表</h3>
         <p>请注意，如果您注册过无须再次注册</p>
 
-        <form class="m-t" role="form" action="${pageContext.request.contextPath}/user/register.do" method="post">
+        <form class="m-t" role="form" action="${pageContext.request.contextPath}/user/register" method="post">
 
             <div class="form-group">
                 <input type="email" class="form-control" placeholder="用邮箱注册账号" required="" name="UAccount"
